@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article - Knowledge Hub</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Knowledge Hub</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="topics.html">Topics</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="article-content">
+        <h1 id="article-title">Article Title</h1>
+        <p id="article-body">This is a placeholder for the article content. The actual content will be loaded dynamically.</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Knowledge Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simulate fetching article content based on query parameter
+        const params = new URLSearchParams(window.location.search);
+        const topic = params.get('topic');
+
+        const articles = {
+            "web-dev": {
+                title: "Introduction to Web Development",
+                content: "Web development involves creating websites and web applications. It includes front-end and back-end development."
+            },
+            "system-design": {
+                title: "Understanding System Design",
+                content: "System design covers the architecture and scalability of software applications, including databases, caching, and APIs."
+            },
+            "fastapi": {
+                title: "Getting Started with FastAPI",
+                content: "FastAPI is a modern, high-performance web framework for building APIs with Python."
+            },
+            "databases": {
+                title: "Relational vs Non-Relational Databases",
+                content: "Databases store and manage data efficiently. This article explores SQL vs NoSQL databases."
+            }
+        };
+
+        if (topic && articles[topic]) {
+            document.getElementById("article-title").innerText = articles[topic].title;
+            document.getElementById("article-body").innerText = articles[topic].content;
+        }
+    </script>
+</body>
+</html>
